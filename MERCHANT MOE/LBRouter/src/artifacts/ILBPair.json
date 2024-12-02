@@ -1,0 +1,89 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"getSwapOut(uint128,bool)": "e77366f8"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "uint128",
+					"name": "amountIn",
+					"type": "uint128"
+				},
+				{
+					"internalType": "bool",
+					"name": "swapForY",
+					"type": "bool"
+				}
+			],
+			"name": "getSwapOut",
+			"outputs": [
+				{
+					"internalType": "uint128",
+					"name": "amountInLeft",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint128",
+					"name": "amountOut",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint128",
+					"name": "fee",
+					"type": "uint128"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

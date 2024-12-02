@@ -1,0 +1,96 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint128",
+						"name": "amountIn",
+						"type": "uint128"
+					},
+					{
+						"internalType": "bool",
+						"name": "swapForY",
+						"type": "bool"
+					}
+				],
+				"name": "getSwapOut",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "amountInLeft",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amountOut",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "fee",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"MERCHANT MOE/LBRouter/src/MMautoBot.sol": "ILBPair"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"MERCHANT MOE/LBRouter/src/MMautoBot.sol": {
+			"keccak256": "0x5a158704a3d171808a38d42b11c5867aeca1fa2a3787908364d25fffd694e4a4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f00de11aec62143eecd84dc6194f3e23cf94ef2f915fa95703c50358f5eb3f4a",
+				"dweb:/ipfs/QmV14pY3o999FvLnDbYP1cACuqfHQ8hDbdow1yALEzAVzq"
+			]
+		},
+		"MERCHANT MOE/LBRouter/src/libraries/FullMath.sol": {
+			"keccak256": "0x5340256039418f5d03512a44173d3dcf1da277a73a461e06fb5668f49cfc46f1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://75dee99795d1125875233a7f1d356935099cc97b4085c0e451060d77db85d144",
+				"dweb:/ipfs/QmTGqyrxVLQd8TBaarqSQDiYvq1QFutCdmTyXk6JpxzKTN"
+			]
+		},
+		"MERCHANT MOE/LBRouter/src/libraries/TickMath.sol": {
+			"keccak256": "0x2aa3180a8a59b34a513b948d3f2207b5376de7a2c37065853b7c9fbf0cd3d43f",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://c4d46ca5384037f14497c6268342b15becf8bbe1a8fecbcd89ca5b80f41fabc2",
+				"dweb:/ipfs/QmanLcdh7EppV4yJ1CdWfPB67es3nEjrDiByAYwgkSE58D"
+			]
+		}
+	},
+	"version": 1
+}
