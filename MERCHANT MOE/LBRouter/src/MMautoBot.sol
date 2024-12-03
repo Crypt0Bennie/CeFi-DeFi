@@ -36,6 +36,23 @@ interface IMOESwapRouter {
     ) external payable returns (uint256[] memory amounts);
     }
 
+interface ILBTokenNFT {
+    function balanceOf(address account, uint256 id) external view returns (uint256);
+
+    function balanceOfBatch(address[] calldata accounts, uint256[] calldata ids)
+        external
+        view
+        returns (uint256[] memory);
+
+    function isApprovedForAll(address owner, address spender) external view returns (bool);
+
+    function approveForAll(address spender, bool approved) external;
+}
+
+interface IRewarder {
+    function claim(address user, uint256[] calldata ids) external payable;
+    }
+
 contract MMAutoFarm{
 
     //https://docs.lfj.gg/guides/add-remove-liquidity
@@ -51,12 +68,13 @@ address admin;
     }
 
 
-uint256 NFTID;
+uint256 CurrentDepositID;
 address WMNT = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //tokenY
 address JOE = 0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07; //tokenX
 address router = 0xeaEE7EE68874218c3558b40063c42B82D3E7232a;
 address joeWMNTpool = 0xeBCf4786cd1A47FE6A8ca75Af674aDd06c84f4b4;
 address LBrouter = 0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a;
+address MoeRewarderJoeMNT = 0x6F62ceedEa4C2c72E7675146Fa034770B3C04882; //Only rewarder for the WMNT/JOE 25 Pool
 
 
 //Trasfer to and from contract
@@ -66,14 +84,6 @@ function transferToAdmin(address Token) external payable {
     address to = 0x0B9BC785fd2Bea7bf9CB81065cfAbA2fC5d0286B;
     IERC20(Token).transfer(to, value);
 }
-
-//GetNFTpositions
-  function ViewNFTPositions(address account, uint256 id) external payable returns(uint256) {
-
-    uint256 NFTID = ILBToken(joeWMNTpool).balanceOf(account, id);
-
-    return NFTID;
-  }
 
 
 //Swap directly with MM
@@ -110,7 +120,6 @@ function AddLiquidity() external payable {
 
     uint256 amountX = IERC20(JOE).balanceOf(address(this));
     uint256 amountY = IERC20(WMNT).balanceOf(address(this));
-    uint256 PRECISION = 1e18;
     uint256 binStep = 25;
     uint256 amountXMin = 0;
     uint256 amountYMin = 0;
@@ -123,7 +132,7 @@ function AddLiquidity() external payable {
     distributionX[0] = 1e18;
     uint256[] memory distributionY = new uint256[](binsAmount);
     distributionY[0] = 1e18;
-    uint256 idSlippage = 5;
+    uint256 idSlippage = 0;
 
     //Approve Tokens
         IERC20(JOE).approve(LBrouter, amountX);
@@ -148,23 +157,64 @@ ILBRouter.LiquidityParameters memory liquidityParameters = ILBRouter.LiquidityPa
         );
 
 
-(
-    uint256 amountXAdded,
-    uint256 amountYAdded,
-    uint256 amountXLeft,
-    uint256 amountYLeft,
-    uint256[] memory depositIds,
-    uint256[] memory liquidityMinted
-) = ILBRouter(LBrouter).addLiquidity(liquidityParameters);
+//(
+ //   uint256 amountXAdded,
+ //   uint256 amountYAdded,
+//    uint256 amountXLeft,
+ //   uint256 amountYLeft,
+ //   uint256[] memory depositIds,
+  ////  uint256[] memory liquidityMinted
+//) = 
+ILBRouter(LBrouter).addLiquidity(liquidityParameters);
+
+CurrentDepositID = activeIdDesired;
 
 
 }
 
+function currentID() external view returns(uint256) {
+
+    return CurrentDepositID;}
 
 //Exit Liquidity
 
+function removeFarm() external payable {
+
+uint16 binStep = 25;
+
+uint256[] memory amounts;
+uint256[] memory claimid;
+claimid[0] = CurrentDepositID;
+
+
+// To figure out amountXMin and amountYMin, we calculate how much X and Y underlying we have as liquidity
+    uint256 LBTokenAmount = ILBTokenNFT(0xeBCf4786cd1A47FE6A8ca75Af674aDd06c84f4b4).balanceOf(address(this), CurrentDepositID);
+    amounts[0] = LBTokenAmount;
+
+ILBTokenNFT(0xeBCf4786cd1A47FE6A8ca75Af674aDd06c84f4b4).approveForAll(0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a, true);
+
+ILBRouter(0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a).removeLiquidity(
+    IERC20(0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07), // Replace with actual token X address
+    IERC20(0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8), // Replace with actual token Y address
+    binStep,
+    0,
+    0,
+    claimid,
+    amounts,
+    address(this),
+    block.timestamp + 300
+);
+}
+
+
 
 //Collect Rewards
+
+function collectRewards() public payable {
+    uint256[] memory claimid;
+    claimid[0] = CurrentDepositID;
+    IRewarder(0x6F62ceedEa4C2c72E7675146Fa034770B3C04882).claim(address(this), claimid);
+}
 
 //Get Bin
 
