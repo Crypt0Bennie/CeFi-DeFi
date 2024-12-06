@@ -26,6 +26,8 @@ import {ILBFactory} from "./interfaces/ILBFactory.sol";
 import {IWNATIVE} from "./interfaces/IWNATIVE.sol";
 import {LBRouter} from "./LBRouter.sol";
 
+
+
 interface IMOESwapRouter {
     function swapExactTokensForTokens(
         uint256 amountIn,
@@ -50,7 +52,7 @@ interface ILBTokenNFT {
 }
 
 interface IRewarder {
-    function claim(address user, uint256[] calldata ids) external payable;
+    function claim(address user, uint256[] calldata ids) external;
     }
 
 contract MMAutoFarm{
@@ -181,9 +183,10 @@ function currentID() external view returns(uint256) {
 function removeFarm() external payable {
 
 uint16 binStep = 25;
+uint256 binsAmount = 1;
 
-uint256[] memory amounts;
-uint256[] memory claimid;
+uint256[] memory amounts = new uint256[](binsAmount);
+uint256[] memory claimid = new uint256[](binsAmount);
 claimid[0] = CurrentDepositID;
 
 
@@ -191,7 +194,6 @@ claimid[0] = CurrentDepositID;
     uint256 LBTokenAmount = ILBTokenNFT(0xeBCf4786cd1A47FE6A8ca75Af674aDd06c84f4b4).balanceOf(address(this), CurrentDepositID);
     amounts[0] = LBTokenAmount;
 
-ILBTokenNFT(0xeBCf4786cd1A47FE6A8ca75Af674aDd06c84f4b4).approveForAll(0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a, true);
 
 ILBRouter(0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a).removeLiquidity(
     IERC20(0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07), // Replace with actual token X address
@@ -206,12 +208,18 @@ ILBRouter(0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a).removeLiquidity(
 );
 }
 
+function approveTokenRewarder() public payable {
 
+ILBTokenNFT(0xeBCf4786cd1A47FE6A8ca75Af674aDd06c84f4b4).approveForAll(0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a, true);
+
+}
 
 //Collect Rewards
 
 function collectRewards() public payable {
-    uint256[] memory claimid;
+    uint256 binsAmount = 1;
+
+    uint256[] memory claimid = new uint256[](binsAmount);
     claimid[0] = CurrentDepositID;
     IRewarder(0x6F62ceedEa4C2c72E7675146Fa034770B3C04882).claim(address(this), claimid);
 }

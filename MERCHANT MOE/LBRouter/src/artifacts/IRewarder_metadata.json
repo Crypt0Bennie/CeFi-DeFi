@@ -20,7 +20,7 @@
 				],
 				"name": "claim",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -37,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/MMautoBot.sol": "IRewarder"
+			"MERCHANT MOE/LBRouter/src/MNTUSDTbot.sol": "IRewarder"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -91,12 +91,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/MMautoBot.sol": {
-			"keccak256": "0x76519625843b1095683d68157f5fa8a1ec9c59c0b389de6157a06d09e9a0d54f",
+		"MERCHANT MOE/LBRouter/src/MNTUSDTbot.sol": {
+			"keccak256": "0xee2b5a90111ac7d40c6421f5f889e975e1a3995c3bdececff549d34903dc4338",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://69d6dd7046267e6dcfff06fe568b7099870e5c4adecb0f74fee02fc18dde86d7",
-				"dweb:/ipfs/QmZEpKyjwpysLA6PZouUGpWiJxLULyRtvqU5XtPGmEzroQ"
+				"bzz-raw://2ce93aafec094a8a2e9a6666da3833743a6312d45e3ce358bb66947c59e651fd",
+				"dweb:/ipfs/QmNjuNvpY9kFGxPXRnBk4QfHgXCUAMUKiQdAg3fuyKyswv"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {
