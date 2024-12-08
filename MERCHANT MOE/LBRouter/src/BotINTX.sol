@@ -46,6 +46,7 @@ address admin;
 
 
 uint256 CurrentDepositID;
+address INTX = 0x4b7F28397B4294277E7825f224172944f4f5A877; //tokenX
 address WMNT = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //tokenX
 address USDT = 	0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //tokenY
 address router = 0xeaEE7EE68874218c3558b40063c42B82D3E7232a;
@@ -56,16 +57,21 @@ address Moe = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9;
 address Bot = 0x08887309eB202ABE9e72598DdbC686c971425eFF;
 
 
+
+
 function rebalance() public payable {
             IMMBot(Bot).removeFarm();
             IMMBot(Bot).collectRewards();
-            IMMBot(Bot).rebalance();
+            uint256 INTXvalue = IERC20(INTX).balanceOf(Bot);
+            if (INTXvalue > 0) {
+                IMMBot(Bot).rebalance();
+            }
             IMMBot(Bot).AddLiquidity();
-            uint256 MoeBalance = IERC20(Moe).balanceOf(Bot);
-            if (MoeBalance > 0){
+            uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
+            if (Moevalue > 0) {
                 IMMBot(Bot).transferToAdmin(Moe);
             }
-
+            
 }
 
 function transferToAdmin(address Token) external payable {
