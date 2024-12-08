@@ -53,7 +53,7 @@
 			"ViewBin()": "ecbd4533",
 			"collectRewards()": "70bb45b3",
 			"currentID()": "1c75cfb4",
-			"rebalanceToEmptyToken()": "03c7685c",
+			"rebalance()": "7d7c2a1c",
 			"removeFarm()": "b298bcf5",
 			"transferToAdmin(address)": "8cbc5cff"
 		}
@@ -101,7 +101,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "rebalanceToEmptyToken",
+			"name": "rebalance",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"

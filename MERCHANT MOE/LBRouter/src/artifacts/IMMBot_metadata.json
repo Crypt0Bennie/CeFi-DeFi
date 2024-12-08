@@ -47,7 +47,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "rebalanceToEmptyToken",
+				"name": "rebalance",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -86,7 +86,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/Bot.sol": "IMMBot"
+			"MERCHANT MOE/LBRouter/src/BotINTX.sol": "IMMBot"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -95,7 +95,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 900
+			"runs": 1000
 		},
 		"remappings": []
 	},
@@ -132,12 +132,12 @@
 				"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/Bot.sol": {
-			"keccak256": "0x39d75095eea867d722201f17b7d68ef60c478fe6fd98fdc6b5ade4cb492a0795",
+		"MERCHANT MOE/LBRouter/src/BotINTX.sol": {
+			"keccak256": "0x48c2e37f0905aef3b154af3c6cb0d49185c7fd31d49172a157af56bbf86a4e52",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1459b5aee745f75171665b6e2af95767854e2b715680c5c234c9f60f3c900b49",
-				"dweb:/ipfs/QmawVEsztrFcKkHy3zmYSzPPsTwyfPKxZRQQuMY6zhJCKK"
+				"bzz-raw://fbbcf510a0be3ad905f9a9d2997ce3808b473afc86edb879736e89e5f262119f",
+				"dweb:/ipfs/QmdwuU6bQyZgBr4TwExZuQnFzvKBcEF96xnfNKJGM8GbJC"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/LBRouter.sol": {
