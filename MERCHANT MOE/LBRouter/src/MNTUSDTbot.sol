@@ -78,6 +78,11 @@ address LBPool = 0xf6C9020c9E915808481757779EDB53DACEaE2415;
 address LBrouter = 0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a;
 address MoeRewarder = 0x08A62Eb0ef6DbE762774ABF5e18F49671559285b; //Only rewarder for the WMNT/JOE 25 Pool
 
+function setDpositID(uint256 newDepositID) public payable {
+    require(msg.sender == admin, "Only owner can do this");
+    CurrentDepositID = newDepositID;
+}
+
 
 //Trasfer to and from contract
 
@@ -89,7 +94,7 @@ function transferToAdmin(address Token) external payable {
 
 
 //Swap directly with MM
-  function rebalance() external payable {
+  function rebalanceToEmptyToken() external payable {
 
         uint256 amountIn;
         uint256 amountX = IERC20(WMNT).balanceOf(address(this));
@@ -98,14 +103,14 @@ function transferToAdmin(address Token) external payable {
         uint256 amountOutMin = 0;
 
         if (amountX > amountY) { 
-            amountIn = 10000000000000000;
-            IERC20(USDT).approve(router, amountIn);
+            amountIn = 1e17;
+            IERC20(WMNT).approve(router, amountIn);
             path[0] = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //WMNT token
             path[1] = 0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //USDT token
 
         } else {
-            amountIn = 100000;
-            IERC20(WMNT).approve(router, amountIn);
+            amountIn = 1e7;
+            IERC20(USDT).approve(router, amountIn);
             path[0] = 0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //USDT token
             path[1] = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //WMNT token
         }
@@ -170,20 +175,9 @@ ILBRouter.LiquidityParameters memory liquidityParameters = ILBRouter.LiquidityPa
         block.timestamp + 300 // deadline in 5 minutes
         );
 
-
-//(
- //   uint256 amountXAdded,
- //   uint256 amountYAdded,
-//    uint256 amountXLeft,
- //   uint256 amountYLeft,
- //   uint256[] memory depositIds,
-  ////  uint256[] memory liquidityMinted
-//) = 
 ILBRouter(LBrouter).addLiquidity(liquidityParameters);
 
 CurrentDepositID = activeIdDesired;
-
-
 }
 
 function currentID() external view returns(uint256) {
@@ -232,9 +226,17 @@ ILBTokenNFT(0xf6C9020c9E915808481757779EDB53DACEaE2415).approveForAll(0x08A62Eb0
 
 function collectRewards() public payable {
     uint256 rewardbinsAmount = 1;
-
     uint256[] memory claimid = new uint256[](rewardbinsAmount);
     claimid[0] = CurrentDepositID;
+    IRewarder(0x08A62Eb0ef6DbE762774ABF5e18F49671559285b).claim(address(this), claimid);
+}
+
+//Collect Rewards Custom
+
+function collectRewardsManual(uint256 ManualDepositID) public payable {
+    uint256 rewardbinsAmount = 1;
+    uint256[] memory claimid = new uint256[](rewardbinsAmount);
+    claimid[0] = ManualDepositID;
     IRewarder(0x08A62Eb0ef6DbE762774ABF5e18F49671559285b).claim(address(this), claimid);
     CurrentDepositID = 0;
 }

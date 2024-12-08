@@ -1,0 +1,50 @@
+{
+  "name": "BotController",
+  "address": "0x858791f26e8e22ae1b3db1c18607764d1886650d",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "rebalance",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "Token",
+          "type": "address"
+        }
+      ],
+      "name": "transferToAdmin",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    },
+    {
+      "inputs": [],
+      "name": "checkFarm",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "filePath": "CeFi-DeFi-1733019678100/MERCHANT MOE/LBRouter/src/Bot.sol",
+  "pinnedAt": 1733560696611
+}
