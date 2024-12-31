@@ -34,6 +34,20 @@
 			},
 			{
 				"inputs": [],
+				"name": "convertMoe",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "convertWMNT",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "currentID",
 				"outputs": [
 					{
@@ -43,13 +57,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "rebalance",
-				"outputs": [],
-				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -86,7 +93,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/BotINTX.sol": "IMMBot"
+			"MERCHANT MOE/LBRouter/src/V4WMNTUSDTBOT.sol": "IMMBot"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -95,7 +102,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 1000
+			"runs": 200
 		},
 		"remappings": []
 	},
@@ -132,20 +139,20 @@
 				"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/BotINTX.sol": {
-			"keccak256": "0xf730f83d723fcd94196e192efada01282d7b4e8f3ffa880b05c513247c4941c6",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://709de8378790032238bc38ebc8139a170c456f2ccadf42897858fc0ae5fb05ba",
-				"dweb:/ipfs/Qmcz2BMZo3vtf7GJGFwapvouigSXyt4mQmmDtVaqovyFbE"
-			]
-		},
 		"MERCHANT MOE/LBRouter/src/LBRouter.sol": {
 			"keccak256": "0xb06aab0b829ac3b74d39a6f25d8490be9498355e235189da59e66f7ae88957a1",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://f3e01927c9b4000f1d0d89be9da69b906a54925c2ac9658d09b9b8cb1ce2ea0b",
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
+			]
+		},
+		"MERCHANT MOE/LBRouter/src/V4WMNTUSDTBOT.sol": {
+			"keccak256": "0x181f98461ed5d58dbd764637459d541c6c0da6fea3c3b8a0abf8737137c4c207",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2f02558298cb8e52f5668dc4e70839caa8b0ddd3f0ca86d271e470075c15d1fc",
+				"dweb:/ipfs/QmaQPuuiDGbz1N6iFvgXq9zzid9sBKteur7HLwDr8WT3QS"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

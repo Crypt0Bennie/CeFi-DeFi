@@ -37,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/USDTINTXbot1.sol": "IRewarder"
+			"MERCHANT MOE/LBRouter/src/V4WMNTUSDT.sol": "IRewarder"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -46,7 +46,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 1000
+			"runs": 200
 		},
 		"remappings": []
 	},
@@ -91,12 +91,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/USDTINTXbot1.sol": {
-			"keccak256": "0x7806002e9517450a54ba2be70d7168a3489ae60d27599896de1dbc6cb4cd5bf0",
+		"MERCHANT MOE/LBRouter/src/V4WMNTUSDT.sol": {
+			"keccak256": "0xab4e08b18efaac199f4bf7c8f6cb9da164f2adc55ac77e999df4fa3a50d90919",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c4adb8ff0e9f4442a4776ecaf4cfac1a76861e2d835586a0690dd9e5d11d6033",
-				"dweb:/ipfs/QmYqByV1dN7mnwbx3iJ7FgMeY5T4eVcz9gAyCzmmrZ6MxF"
+				"bzz-raw://e1a5024dbb7b37d7dbf2cea8f65bb4c6851b7dedbb65c118b4c17a974296e946",
+				"dweb:/ipfs/QmYc3kboL4cav2ckDdGb1v4sa3yRn58RNmTQeUSmwYstCA"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

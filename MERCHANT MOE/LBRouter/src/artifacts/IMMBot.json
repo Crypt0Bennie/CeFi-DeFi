@@ -52,8 +52,9 @@
 			"AddLiquidity()": "0bc488c5",
 			"ViewBin()": "ecbd4533",
 			"collectRewards()": "70bb45b3",
+			"convertMoe()": "b72d41d8",
+			"convertWMNT()": "18d8b3db",
 			"currentID()": "1c75cfb4",
-			"rebalance()": "7d7c2a1c",
 			"removeFarm()": "b298bcf5",
 			"transferToAdmin(address)": "8cbc5cff"
 		}
@@ -88,6 +89,20 @@
 		},
 		{
 			"inputs": [],
+			"name": "convertMoe",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "convertWMNT",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "currentID",
 			"outputs": [
 				{
@@ -97,13 +112,6 @@
 				}
 			],
 			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "rebalance",
-			"outputs": [],
-			"stateMutability": "payable",
 			"type": "function"
 		},
 		{

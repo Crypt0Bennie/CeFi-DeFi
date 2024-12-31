@@ -109,7 +109,7 @@ function transferToAdmin(address Token) external payable {
             path[1] = 0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //USDT token
 
         } else {
-            amountIn = 1e7;
+            amountIn = 1e5;
             IERC20(USDT).approve(router, amountIn);
             path[0] = 0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //USDT token
             path[1] = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //WMNT token
@@ -242,8 +242,35 @@ function collectRewardsManual(uint256 ManualDepositID) public payable {
 }
 
 
-//Out of Range 
+  function SwapMoe() external payable {
 
+        uint256 amountIn;
+        uint256 amountX = IERC20(WMNT).balanceOf(address(this));
+        uint256 amountY = IERC20(USDT).balanceOf(address(this));
+        address[] memory path = new address[](2);
+        uint256 amountOutMin = 0;
+
+        if (amountX > amountY) { 
+            amountIn = 1e17;
+            IERC20(WMNT).approve(router, amountIn);
+            path[0] = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //WMNT token
+            path[1] = 0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //USDT token
+
+        } else {
+            amountIn = 1e5;
+            IERC20(USDT).approve(router, amountIn);
+            path[0] = 0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //USDT token
+            path[1] = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //WMNT token
+        }
+
+                IMOESwapRouter(router).swapExactTokensForTokens(
+                amountIn,
+                amountOutMin,
+                path,
+                address(this), // Keep the tokens in the contract
+                block.timestamp + 300 // deadline in 5 minutes
+        );
+  }
 
 
 

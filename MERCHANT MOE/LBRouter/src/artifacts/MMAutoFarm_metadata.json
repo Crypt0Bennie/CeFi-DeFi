@@ -19,6 +19,13 @@
 			},
 			{
 				"inputs": [],
+				"name": "SwapMoe",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "ViewBin",
 				"outputs": [
 					{
@@ -72,7 +79,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "rebalance",
+				"name": "rebalanceToEmptyToken",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -80,19 +87,6 @@
 			{
 				"inputs": [],
 				"name": "removeFarm",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "ManDepositID",
-						"type": "uint256"
-					}
-				],
-				"name": "removeFarmManual",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -141,7 +135,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/USDTINTXbot1.sol": "MMAutoFarm"
+			"MERCHANT MOE/LBRouter/src/MNTUSDTbot.sol": "MMAutoFarm"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -150,7 +144,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 900
+			"runs": 200
 		},
 		"remappings": []
 	},
@@ -195,12 +189,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/USDTINTXbot1.sol": {
-			"keccak256": "0x431c3f003ee64aa67a0ce406cb7a4bbcd2618db59fb6c999242bc496f0a77f6d",
+		"MERCHANT MOE/LBRouter/src/MNTUSDTbot.sol": {
+			"keccak256": "0x0b5a15e95620eb6103c4736ce03cd9acddfba4a55d677d697ab5a308a9a96b22",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://750cb468774bd413351ec335b4e07cc2d3519f81f3088d563d79e94a272a6fc7",
-				"dweb:/ipfs/QmRtXWDPe2kjSyUFxECmaD6jvzWsnSQQtR6z87ptnJH48D"
+				"bzz-raw://99af99a6b81500ac8be12f647ddf8cb5d55a625080d4ffb7ed7b69292d732cea",
+				"dweb:/ipfs/QmPRCWzSLqQsBNQJAaMYqybTd5qosPx1kszApFqxJyVVmW"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {
