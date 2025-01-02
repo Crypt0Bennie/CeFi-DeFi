@@ -12,7 +12,14 @@
 			},
 			{
 				"inputs": [],
-				"name": "AddLiquidity",
+				"name": "AddLiquidityUSDT",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "AddLiquiditytokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -39,9 +46,15 @@
 			},
 			{
 				"inputs": [],
-				"name": "collectRewards",
-				"outputs": [],
-				"stateMutability": "payable",
+				"name": "botController",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -59,7 +72,35 @@
 			},
 			{
 				"inputs": [],
+				"name": "collectRewardsUSDT",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "collectRewardstokenX",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "compoundMoe",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "convertMoe",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "converttokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -78,20 +119,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "rebalance",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "removeFarm",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -100,6 +127,20 @@
 					}
 				],
 				"name": "removeFarmManual",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "removeFarmUSDT",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "removeFarmtokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -129,10 +170,6 @@
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
-			},
-			{
-				"stateMutability": "payable",
-				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -148,7 +185,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/MMBOTV4.sol": "MMAutoFarmV4"
+			"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": "MMAutoFarmV4"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -202,12 +239,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/MMBOTV4.sol": {
-			"keccak256": "0x9dea870ce0e55e69fa5cc12407ff3080c1bd155623989f926ded5ee4aa7c7e15",
+		"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": {
+			"keccak256": "0xe0b3537950e274a768eea0d6713c4ca64c25a20393c2a57258a4dc27822a7e52",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://884fddbdea7ea6564552592056dcd4a13fb06f7402e24a88c99fe431e430873f",
-				"dweb:/ipfs/Qmb47Bp2xHu3xeA1r2mLrqXWMKBFRJzLCa6VYHgCHh3AnG"
+				"bzz-raw://49cef2b8404ffc143b56860afb8bac931f064507d2d865394eb0363b90b29e22",
+				"dweb:/ipfs/QmPDWyMBj636gwEJbAmam6cFPGWwo4QnvpFpYCBD6MTC2B"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

@@ -109,7 +109,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/V4WMNTUSDT.sol": "ILBTokenNFT"
+			"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": "ILBTokenNFT"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -163,12 +163,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/V4WMNTUSDT.sol": {
-			"keccak256": "0xab4e08b18efaac199f4bf7c8f6cb9da164f2adc55ac77e999df4fa3a50d90919",
+		"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": {
+			"keccak256": "0xe0b3537950e274a768eea0d6713c4ca64c25a20393c2a57258a4dc27822a7e52",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e1a5024dbb7b37d7dbf2cea8f65bb4c6851b7dedbb65c118b4c17a974296e946",
-				"dweb:/ipfs/QmYc3kboL4cav2ckDdGb1v4sa3yRn58RNmTQeUSmwYstCA"
+				"bzz-raw://49cef2b8404ffc143b56860afb8bac931f064507d2d865394eb0363b90b29e22",
+				"dweb:/ipfs/QmPDWyMBj636gwEJbAmam6cFPGWwo4QnvpFpYCBD6MTC2B"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

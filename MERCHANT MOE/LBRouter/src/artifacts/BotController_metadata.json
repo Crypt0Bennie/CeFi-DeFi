@@ -41,6 +41,32 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "newBot",
+						"type": "address"
+					}
+				],
+				"name": "setBOTAddress",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "setUSDTonly",
+						"type": "bool"
+					}
+				],
+				"name": "setUSDTbool",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "Token",
 						"type": "address"
 					}
@@ -64,7 +90,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/V4WMNTUSDTBOT.sol": "BotController"
+			"MERCHANT MOE/LBRouter/src/BotV4.sol": "BotController"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -110,20 +136,20 @@
 				"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
 			]
 		},
+		"MERCHANT MOE/LBRouter/src/BotV4.sol": {
+			"keccak256": "0xfe37b36cef28bc5c869437eb8cb6ae96426233fa8ae7e7687a9be4a9a470e4be",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9178bf34191fee31095b6319efe63875b7bdc5968af0fe07cddbfd3232d9e828",
+				"dweb:/ipfs/QmNnaS1fTjmVBVcTTmgbpA3c6HbM8dW47RjmHGKSydy4X1"
+			]
+		},
 		"MERCHANT MOE/LBRouter/src/LBRouter.sol": {
 			"keccak256": "0xb06aab0b829ac3b74d39a6f25d8490be9498355e235189da59e66f7ae88957a1",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://f3e01927c9b4000f1d0d89be9da69b906a54925c2ac9658d09b9b8cb1ce2ea0b",
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
-			]
-		},
-		"MERCHANT MOE/LBRouter/src/V4WMNTUSDTBOT.sol": {
-			"keccak256": "0x181f98461ed5d58dbd764637459d541c6c0da6fea3c3b8a0abf8737137c4c207",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://2f02558298cb8e52f5668dc4e70839caa8b0ddd3f0ca86d271e470075c15d1fc",
-				"dweb:/ipfs/QmaQPuuiDGbz1N6iFvgXq9zzid9sBKteur7HLwDr8WT3QS"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

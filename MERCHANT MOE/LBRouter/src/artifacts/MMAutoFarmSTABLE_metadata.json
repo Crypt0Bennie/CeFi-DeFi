@@ -59,20 +59,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "convertMoe",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "convertWMNT",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "currentID",
 				"outputs": [
 					{
@@ -148,7 +134,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/V4WMNTUSDT.sol": "MMAutoFarmSTABLE"
+			"MERCHANT MOE/LBRouter/src/V4aUSDUSDT.sol": "MMAutoFarmSTABLE"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -157,7 +143,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 200
+			"runs": 1000
 		},
 		"remappings": []
 	},
@@ -202,12 +188,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/V4WMNTUSDT.sol": {
-			"keccak256": "0xe140fe00df6c69c7777233c41394bd8c4ee5a1c7fd58b9046834339431b7bcb6",
+		"MERCHANT MOE/LBRouter/src/V4aUSDUSDT.sol": {
+			"keccak256": "0x446f9446e30c1eb1f790cc1c27996c59f7554270d823989f9fa8740ba0237247",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8007fc343ee410514ac23612dff460ed771b4356630891a430726ff9d7675f1e",
-				"dweb:/ipfs/QmYLGhddv3FPmPRr1ytHWc6TBWXMFfdWF5LPTn8aZw2wb7"
+				"bzz-raw://64ba302a4075c97dfbd6b2656389ff0be9c95a3d95b57e128d04e815e47ba8f3",
+				"dweb:/ipfs/QmPNk7utZ9ve8WRF4D14jpjTS1rTYn6Hnv8VrZcAigzYNS"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

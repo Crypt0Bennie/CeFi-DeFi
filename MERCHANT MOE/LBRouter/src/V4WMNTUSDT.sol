@@ -24,10 +24,6 @@ import {IJoeFactory} from "./interfaces/IJoeFactory.sol";
 import {ILBLegacyFactory} from "./interfaces/ILBLegacyFactory.sol";
 import {ILBFactory} from "./interfaces/ILBFactory.sol";
 import {IWNATIVE} from "./interfaces/IWNATIVE.sol";
-import {LBRouter} from "./LBRouter.sol";
-
-
-
 
 
 interface ILBTokenNFT {
@@ -46,6 +42,10 @@ interface ILBTokenNFT {
 interface IRewarder {
     function claim(address user, uint256[] calldata ids) external;
     }
+
+import {LBRouter} from "./LBRouter.sol";
+
+
 
     interface IMOESwapRouter {
     function swapExactTokensForTokens(

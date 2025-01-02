@@ -35,6 +35,9 @@ function collectRewards() external payable;
 function ViewBin() external view returns(uint256);
 function convertWMNT() external payable;
 function convertMoe() external payable;
+function convertMoeTo1BIN() external payable;
+function convertUSDTTo1BIN() external payable;
+
 }
 
 contract BotController{
@@ -56,38 +59,31 @@ address LBPool = 0xf6C9020c9E915808481757779EDB53DACEaE2415;
 address LBrouter = 0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a;
 address MoeRewarder = 0x08A62Eb0ef6DbE762774ABF5e18F49671559285b; //Only rewarder for the WMNT/JOE 25 Pool
 address Moe = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9;
-address Bot = 0x856C7607f13eB08510A9F89238eFD48E41D88BdB;
+address public Bot;
+bool lock = false;
 
 
+function _setBot(address newBot) public payable {
+    require(msg.sender == admin, "Only owner can do this");
+    Bot = newBot;
+}
 
 
 function rebalance() public payable {
         IMMBot(Bot).removeFarm();
         IMMBot(Bot).collectRewards();
-        uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
-        if (Moevalue > 0) {
-            IMMBot(Bot).convertMoe();
-            }
-        uint256 WMNTvalue = IERC20(WMNT).balanceOf(Bot);
-        if (WMNTvalue > 0) {
-            IMMBot(Bot).convertWMNT();
-            }
-        IMMBot(Bot).AddLiquidity();     
+        uint256 value = IERC20(Moe).balanceOf(address(this));
+        if (value > 0){
+                  IMMBot(Bot).transferToAdmin(Moe);
+        }
+        IMMBot(Bot).transferToAdmin(Moe);
+        IMMBot(Bot).AddLiquidity(); 
 }
 
 function compound() public payable {
     IMMBot(Bot).collectRewards();
-    uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
-    if (Moevalue > 0) {
-        IMMBot(Bot).convertMoe();
-                uint256 WMNTvalue = IERC20(WMNT).balanceOf(Bot);
-        if (WMNTvalue > 0) {
-            IMMBot(Bot).convertWMNT();
-            }
-        IMMBot(Bot).AddLiquidity();   
+    IMMBot(Bot).transferToAdmin(Moe);
     }
-}
-
 
 function transferToAdmin(address Token) external payable {
     uint256 value = IERC20(Token).balanceOf(address(this));

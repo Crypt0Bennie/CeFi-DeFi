@@ -241,57 +241,6 @@ function collectRewardsManual(uint256 ManualDepositID) public payable {
     IRewarder(MoeRewarder).claim(address(this), claimid);
 }
 
-
-
-//Swap directly with MM
-  function convertWMNT() external payable {
-        
-        uint256 amountIn = IERC20(WMNT).balanceOf(address(this));
-        IERC20[] memory tokenPath = new IERC20[](2);
-        tokenPath[0] = IERC20(WMNT);
-        tokenPath[1] = IERC20(tokenY);
-        uint128 amountOut = 0;
-        IERC20(WMNT).approve(LBrouter, amountIn);
-
-        uint256[] memory pairBinSteps = new uint256[](1); // pairBinSteps[i] refers to the bin step for the market (x, y) where tokenPath[i] = x and tokenPath[i+1] = y
-        pairBinSteps[0] = 15;
-
-        ILBRouter.Version[] memory versions = new ILBRouter.Version[](1);
-        versions[0] = ILBRouter.Version.V2_2; // add the version of the Dex to perform the swap on
-
-        ILBRouter.Path memory path; // instanciate and populate the path to perform the swap.
-        path.pairBinSteps = pairBinSteps;
-        path.versions = versions;
-        path.tokenPath = tokenPath;
-
-    
-        ILBRouter(LBrouter).swapExactTokensForTokens(amountIn, amountOut, path, address(this), block.timestamp + 1);
-  }
-
-
-  function convertMoe() external payable {
-        
-        uint256 amountIn = IERC20(Moe).balanceOf(address(this));
-
-        address[] memory path = new address[](2);
-        path[0] = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9; //Moe token
-        path[1] = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //WMNT token
-
-        uint256 amountOutMin = 0;
-
-        IERC20(Moe).approve(router, amountIn);
-
-            IMOESwapRouter(router).swapExactTokensForTokens(
-            amountIn,
-            amountOutMin,
-            path,
-            address(this), // Keep the tokens in the contract
-            block.timestamp 
-        );
-  }
-
-
-
     // Function to receive MNT
     receive() external payable {}
 

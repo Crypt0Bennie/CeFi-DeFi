@@ -28,7 +28,12 @@ import {LBRouter} from "./LBRouter.sol";
 
 interface IMMBot {
 function transferToAdmin(address Token) external payable;
-function AddLiquidity() external payable;
+function AddLiquidityUSDT() external payable;
+function AddLiquidityWMNT() external payable;
+function removeFarmUSDT() external payable;
+function removeFarmWMNT() external payable;
+function collectRewardsUSDT() external payable;
+function collectRewardsWMNT() external payable; 
 function currentID() external view returns(uint256);
 function removeFarm() external payable;
 function collectRewards() external payable;
@@ -57,33 +62,70 @@ address LBPool = 0xf6C9020c9E915808481757779EDB53DACEaE2415;
 address LBrouter = 0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a;
 address MoeRewarder = 0x08A62Eb0ef6DbE762774ABF5e18F49671559285b; //Only rewarder for the WMNT/JOE 25 Pool
 address Moe = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9;
-address Bot = 0xe3c5Eca3cFb3D8Cfbf22cE97CD7bDdc06C4E9141;
+address Bot;
+
+bool USDTonly;
 
 
+function setUSDTbool(bool setUSDTonly) public payable {
+    require(msg.sender == admin, "Only owner can do this");
+    USDTonly = setUSDTonly;
+}
 
+function setBOTAddress(address newBot) public payable {
+    require(msg.sender == admin, "Only owner can do this");
+    Bot = newBot;
+}
 
 function rebalance() public payable {
-        uint256 Bin = IMMBot(Bot).currentID();
-        IMMBot(Bot).removeFarm();
-        IMMBot(Bot).collectRewardsManual(Bin);
-        IMMBot(Bot).collectRewardsManual(Bin - 1);
-        IMMBot(Bot).collectRewardsManual(Bin - 2);
+
+    if (USDTonly == true) {
+        IMMBot(Bot).removeFarmUSDT();
+        IMMBot(Bot).collectRewardsUSDT();
         uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
         if (Moevalue > 0) {
-            IMMBot(Bot).compoundMoe();
+            IMMBot(Bot).transferToAdmin(Moe);
             }
+         uint256 USDTvalue = IERC20(USDT).balanceOf(Bot);
         uint256 WMNTvalue = IERC20(WMNT).balanceOf(Bot);
-        if (WMNTvalue > 0) {
-            IMMBot(Bot).rebalance();
+        if ( USDTvalue > WMNTvalue) {
+           IMMBot(Bot).AddLiquidityUSDT();
+           USDTonly = true;   
+        }
+        if (WMNTvalue > USDTvalue) {
+            IMMBot(Bot).AddLiquidityWMNT();  
+            USDTonly = false;
+        }
+    }
+    else {
+        IMMBot(Bot).removeFarmWMNT();
+        IMMBot(Bot).collectRewardsWMNT();
+        uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
+        if (Moevalue > 0) {
+            IMMBot(Bot).transferToAdmin(Moe);
             }
-        IMMBot(Bot).AddLiquidity();     
+        uint256 USDTvalue = IERC20(USDT).balanceOf(Bot);
+        uint256 WMNTvalue = IERC20(WMNT).balanceOf(Bot);
+        if ( USDTvalue > WMNTvalue) {
+           IMMBot(Bot).AddLiquidityUSDT(); 
+           USDTonly = true;  
+        }
+        if (WMNTvalue > USDTvalue) {
+            IMMBot(Bot).AddLiquidityWMNT();
+            USDTonly = false;  
+        }
+    }
+         
 }
 
 function compound() public payable {
-    IMMBot(Bot).collectRewards();
-    uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
-    if (Moevalue > 0) {
-        IMMBot(Bot).compoundMoe();
+    if (USDTonly == true) {
+        IMMBot(Bot).collectRewardsUSDT();
+        IMMBot(Bot).transferToAdmin(Moe);
+    }
+    else {
+        IMMBot(Bot).collectRewardsWMNT();
+        IMMBot(Bot).transferToAdmin(Moe);
     }
 }
 
@@ -98,13 +140,12 @@ function checkFarm() external view returns (bool){
    uint256 ActiveID = IMMBot(Bot).ViewBin();
    uint256 FarmID = IMMBot(Bot).currentID();
    bool farmInRange;
-
-       if (ActiveID > FarmID) {
+    if (USDTonly == true) {
+        if (ActiveID > FarmID) {
         farmInRange = false;
         return(farmInRange);
         }
-
-        else if (ActiveID < (FarmID - 2)) {
+        else if (ActiveID < (FarmID - 4)) {
         farmInRange = false;
         return(farmInRange);
         }
@@ -112,6 +153,22 @@ function checkFarm() external view returns (bool){
         farmInRange = true;
         return(farmInRange);
         }
+    }
+    else {
+        if (ActiveID < FarmID) {
+        farmInRange = false;
+        return(farmInRange);
+        }
+        else if (ActiveID > (FarmID + 4)) {
+        farmInRange = false;
+        return(farmInRange);
+        }
+        else {
+        farmInRange = true;
+        return(farmInRange);
+        }  
+    }
+
 
 }
 

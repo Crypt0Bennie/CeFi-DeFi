@@ -76,7 +76,7 @@ function rebalance() public payable {
             
 }
 
-function CollectMoe() public payable {
+function compound() public payable {
             IMMBot(Bot).collectRewards();
             uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
             if (Moevalue > 0) {

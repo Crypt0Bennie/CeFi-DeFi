@@ -49,20 +49,33 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"AddLiquidity()": "0bc488c5",
+			"AddLiquidityUSDT()": "1f4e2e0a",
+			"AddLiquidityWMNT()": "17473c20",
 			"ViewBin()": "ecbd4533",
 			"collectRewards()": "70bb45b3",
-			"convertMoe()": "b72d41d8",
-			"convertWMNT()": "18d8b3db",
+			"collectRewardsManual(uint256)": "17ced34b",
+			"collectRewardsUSDT()": "c8643a5d",
+			"collectRewardsWMNT()": "e3a65498",
+			"compoundMoe()": "77e0074b",
 			"currentID()": "1c75cfb4",
+			"rebalance()": "7d7c2a1c",
 			"removeFarm()": "b298bcf5",
+			"removeFarmUSDT()": "26aa7e0e",
+			"removeFarmWMNT()": "d1c3eae6",
 			"transferToAdmin(address)": "8cbc5cff"
 		}
 	},
 	"abi": [
 		{
 			"inputs": [],
-			"name": "AddLiquidity",
+			"name": "AddLiquidityUSDT",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "AddLiquidityWMNT",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"
@@ -88,15 +101,35 @@
 			"type": "function"
 		},
 		{
-			"inputs": [],
-			"name": "convertMoe",
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "ManualDepositID",
+					"type": "uint256"
+				}
+			],
+			"name": "collectRewardsManual",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"
 		},
 		{
 			"inputs": [],
-			"name": "convertWMNT",
+			"name": "collectRewardsUSDT",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "collectRewardsWMNT",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "compoundMoe",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"
@@ -116,7 +149,28 @@
 		},
 		{
 			"inputs": [],
+			"name": "rebalance",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "removeFarm",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "removeFarmUSDT",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "removeFarmWMNT",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"

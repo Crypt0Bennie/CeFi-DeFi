@@ -203,11 +203,11 @@
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/V4WMNTUSDT.sol": {
-			"keccak256": "0xab4e08b18efaac199f4bf7c8f6cb9da164f2adc55ac77e999df4fa3a50d90919",
+			"keccak256": "0x7068e33519eaa9b01cc8247fa40828a79f2b4de5dab2a1d64a3da06a65cc0b72",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e1a5024dbb7b37d7dbf2cea8f65bb4c6851b7dedbb65c118b4c17a974296e946",
-				"dweb:/ipfs/QmYc3kboL4cav2ckDdGb1v4sa3yRn58RNmTQeUSmwYstCA"
+				"bzz-raw://9ffab834f4d91a6ead8456c039fc9f81b9ee196bd47b2b2f5e8b0d335ae8b9af",
+				"dweb:/ipfs/QmRV5mA8gkbsHrtWN7Wm6XX8Pj35ti4xE9tNGoAb5C4z87"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {
