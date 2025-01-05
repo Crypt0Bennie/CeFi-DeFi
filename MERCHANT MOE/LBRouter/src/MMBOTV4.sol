@@ -122,7 +122,7 @@ function AddLiquiditytokenY() public payable {
     deltaIdStart = deltaIdStart - int256(binsAmount);
 
     int256[] memory deltaIds = new int256[](binsAmount);
-    for (uint256 i = 0; i < binsAmount; i++) {
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
     deltaIds[i] = deltaIdStart + int256(i);
     }
 
@@ -131,14 +131,16 @@ function AddLiquiditytokenY() public payable {
 
     uint256[] memory distributionX = new uint256[](binsAmount);
 
-    for (uint256 i = 0; i < binsAmount; i++) {
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
     distributionX[i] = 0;
+        if (i == 0) {
+            distributionX[0] = 1e18;
+        }
     }
-    distributionX[0] = 1e18;
 
     uint256[] memory distributionY = new uint256[](binsAmount);
 
-    for (uint256 i = 0; i < binsAmount; i++) {
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
     distributionY[i] = distribution;
     }
     
@@ -184,7 +186,7 @@ function AddLiquiditytokenX() external payable {
     int256 deltaIdStart = int256(activeIdDesired);
 
     int256[] memory deltaIds = new int256[](binsAmount);
-    for (uint256 i = 0; i < binsAmount; i++) {
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
     uint256 did = i;
     deltaIds[i] = deltaIdStart + int256(did);
     }
@@ -193,13 +195,13 @@ function AddLiquiditytokenX() external payable {
 
     uint256[] memory distributionX = new uint256[](binsAmount);
 
-    for (uint256 i = 0; i < binsAmount; i++) {
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
     distributionX[i] = distribution;
     }
 
     uint256[] memory distributionY = new uint256[](binsAmount);
 
-    for (uint256 i = 0; i < binsAmount; i++) {
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
     distributionY[i] = 0;
     }
     distributionY[0] = 1e18;
@@ -247,14 +249,14 @@ uint256 LBTokenAmount;
 
 uint256[] memory amounts = new uint256[](binsAmount);
 
-    for (uint256 i = 0; i < binsAmount; i++) {
-    LBTokenAmount = ILBTokenNFT(LBPool).balanceOf(address(this), CurrentDepositID - 1);
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
+    LBTokenAmount = ILBTokenNFT(LBPool).balanceOf(address(this), CurrentDepositID - i);
     amounts[i] = LBTokenAmount;
     }
 
 uint256[] memory claimid = new uint256[](binsAmount);
 
-    for (uint256 i = 0; i < binsAmount; i++) {
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
     claimid[i] = (CurrentDepositID - i);
     }
 
@@ -272,13 +274,15 @@ ILBRouter(LBrouter).removeLiquidity(
 
 }
 
-
+function removeFarmtokenX() external payable {
+     
+uint256 LBTokenAmount;
 
 uint256[] memory amounts = new uint256[](binsAmount);
 uint256[] memory claimid = new uint256[](binsAmount);
 
-    for (uint256 i = 0; i < binsAmount; i++) {
-    uint256 LBTokenAmount = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID + i));
+    for (uint256 i = 0; i < (binsAmount - 1); i++) {
+    LBTokenAmount = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID + i));
     amounts[i] = LBTokenAmount;
     claimid[i] = (CurrentDepositID + i);
     }
@@ -286,7 +290,6 @@ uint256[] memory claimid = new uint256[](binsAmount);
 ILBRouter(LBrouter).removeLiquidity( 
     IERC20(tokenX), // Replace with actual token X address
     IERC20(tokenY), // Replace with actual token Y address
-function removeFarmtokenX() external payable {
     binStep,
     0,
     0,

@@ -50,18 +50,18 @@
 		"gasEstimates": null,
 		"methodIdentifiers": {
 			"AddLiquidityUSDT()": "1f4e2e0a",
-			"AddLiquidityWMNT()": "17473c20",
+			"AddLiquiditytokenX()": "f5001870",
 			"ViewBin()": "ecbd4533",
 			"collectRewards()": "70bb45b3",
 			"collectRewardsManual(uint256)": "17ced34b",
 			"collectRewardsUSDT()": "c8643a5d",
-			"collectRewardsWMNT()": "e3a65498",
+			"collectRewardstokenX()": "69bdedd5",
 			"compoundMoe()": "77e0074b",
 			"currentID()": "1c75cfb4",
 			"rebalance()": "7d7c2a1c",
 			"removeFarm()": "b298bcf5",
 			"removeFarmUSDT()": "26aa7e0e",
-			"removeFarmWMNT()": "d1c3eae6",
+			"removeFarmtokenX()": "78ee22de",
 			"transferToAdmin(address)": "8cbc5cff"
 		}
 	},
@@ -75,7 +75,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "AddLiquidityWMNT",
+			"name": "AddLiquiditytokenX",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"
@@ -122,7 +122,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "collectRewardsWMNT",
+			"name": "collectRewardstokenX",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"
@@ -170,7 +170,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "removeFarmWMNT",
+			"name": "removeFarmtokenX",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"

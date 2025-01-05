@@ -14,7 +14,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "AddLiquidityWMNT",
+				"name": "AddLiquiditytokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -61,7 +61,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "collectRewardsWMNT",
+				"name": "collectRewardstokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -109,7 +109,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "removeFarmWMNT",
+				"name": "removeFarmtokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -141,7 +141,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/BotV4.sol": "IMMBot"
+			"MERCHANT MOE/LBRouter/src/BotV41.sol": "IMMBot"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -187,12 +187,12 @@
 				"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/BotV4.sol": {
-			"keccak256": "0xfe37b36cef28bc5c869437eb8cb6ae96426233fa8ae7e7687a9be4a9a470e4be",
+		"MERCHANT MOE/LBRouter/src/BotV41.sol": {
+			"keccak256": "0xdfc7bf4f1febdd611965aa94082a1a670a4de31beab42a685759554a43ca5f5f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9178bf34191fee31095b6319efe63875b7bdc5968af0fe07cddbfd3232d9e828",
-				"dweb:/ipfs/QmNnaS1fTjmVBVcTTmgbpA3c6HbM8dW47RjmHGKSydy4X1"
+				"bzz-raw://7199c3df4b097dcf8ef67ae19d67bb4582aca4a606e569180364678459e60e1f",
+				"dweb:/ipfs/QmcWHQAsqWnq6sEzCVupuHUWYLt6ZQSri5kwSGGU4LF4Mc"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/LBRouter.sol": {

@@ -29,11 +29,11 @@ import {LBRouter} from "./LBRouter.sol";
 interface IMMBot {
 function transferToAdmin(address Token) external payable;
 function AddLiquidityUSDT() external payable;
-function AddLiquidityWMNT() external payable;
+function AddLiquiditytokenX() external payable;
 function removeFarmUSDT() external payable;
-function removeFarmWMNT() external payable;
+function removeFarmtokenX() external payable;
 function collectRewardsUSDT() external payable;
-function collectRewardsWMNT() external payable; 
+function collectRewardstokenX() external payable; 
 function currentID() external view returns(uint256);
 function removeFarm() external payable;
 function collectRewards() external payable;
@@ -55,13 +55,13 @@ address admin;
 
 uint256 CurrentDepositID;
 
-address WMNT = 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8; //tokenX
-address USDT = 	0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE; //tokenY
-address router = 0xeaEE7EE68874218c3558b40063c42B82D3E7232a;
-address LBPool = 0xf6C9020c9E915808481757779EDB53DACEaE2415;
+address tokenX = 0x9F0C013016E8656bC256f948CD4B79ab25c7b94D; //tokenX COOK
+address tokenY = 0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a; //tokenY aUSD
+address LBPool = 0xF53B930d94d687B7dE1562bEeDFE7e31934dBD6a;
 address LBrouter = 0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a;
-address MoeRewarder = 0x08A62Eb0ef6DbE762774ABF5e18F49671559285b; //Only rewarder for the WMNT/JOE 25 Pool
-address Moe = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9;
+address MoeRewarder = 0xb6Cd8BA551bcf697a354FeC32F90A027dC92f2Db;//Only rewarder for the tokenX/USDT 1 Pool
+address Moe = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9; 
+address router = 0xeaEE7EE68874218c3558b40063c42B82D3E7232a;
 address Bot;
 
 bool USDTonly;
@@ -86,32 +86,33 @@ function rebalance() public payable {
         if (Moevalue > 0) {
             IMMBot(Bot).transferToAdmin(Moe);
             }
-         uint256 USDTvalue = IERC20(USDT).balanceOf(Bot);
-        uint256 WMNTvalue = IERC20(WMNT).balanceOf(Bot);
+         uint256 USDTvalue = IERC20(tokenY).balanceOf(Bot);
+         USDTvalue = USDTvalue * (10 ** 12);
+        uint256 WMNTvalue = IERC20(tokenX).balanceOf(Bot);
         if ( USDTvalue > WMNTvalue) {
            IMMBot(Bot).AddLiquidityUSDT();
            USDTonly = true;   
         }
         if (WMNTvalue > USDTvalue) {
-            IMMBot(Bot).AddLiquidityWMNT();  
+            IMMBot(Bot).AddLiquiditytokenX();  
             USDTonly = false;
         }
     }
     else {
-        IMMBot(Bot).removeFarmWMNT();
-        IMMBot(Bot).collectRewardsWMNT();
+        IMMBot(Bot).removeFarmtokenX();
+        IMMBot(Bot).collectRewardstokenX();
         uint256 Moevalue = IERC20(Moe).balanceOf(Bot);
         if (Moevalue > 0) {
             IMMBot(Bot).transferToAdmin(Moe);
             }
-        uint256 USDTvalue = IERC20(USDT).balanceOf(Bot);
-        uint256 WMNTvalue = IERC20(WMNT).balanceOf(Bot);
+        uint256 USDTvalue = IERC20(tokenY).balanceOf(Bot);
+        uint256 WMNTvalue = IERC20(tokenX).balanceOf(Bot);
         if ( USDTvalue > WMNTvalue) {
            IMMBot(Bot).AddLiquidityUSDT(); 
            USDTonly = true;  
         }
         if (WMNTvalue > USDTvalue) {
-            IMMBot(Bot).AddLiquidityWMNT();
+            IMMBot(Bot).AddLiquiditytokenX();
             USDTonly = false;  
         }
     }
@@ -124,7 +125,7 @@ function compound() public payable {
         IMMBot(Bot).transferToAdmin(Moe);
     }
     else {
-        IMMBot(Bot).collectRewardsWMNT();
+        IMMBot(Bot).collectRewardstokenX();
         IMMBot(Bot).transferToAdmin(Moe);
     }
 }
@@ -145,7 +146,7 @@ function checkFarm() external view returns (bool){
         farmInRange = false;
         return(farmInRange);
         }
-        else if (ActiveID < (FarmID - 4)) {
+        else if (ActiveID < (FarmID - 9)) {
         farmInRange = false;
         return(farmInRange);
         }
@@ -159,7 +160,7 @@ function checkFarm() external view returns (bool){
         farmInRange = false;
         return(farmInRange);
         }
-        else if (ActiveID > (FarmID + 4)) {
+        else if (ActiveID > (FarmID + 9)) {
         farmInRange = false;
         return(farmInRange);
         }
