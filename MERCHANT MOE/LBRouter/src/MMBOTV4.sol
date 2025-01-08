@@ -123,25 +123,20 @@ function AddLiquiditytokenY() public payable {
 
     int256[] memory deltaIds = new int256[](binsAmount);
     for (uint256 i = 0; i < (binsAmount - 1); i++) {
-    deltaIds[i] = deltaIdStart + int256(i);
+    deltaIds[i] = deltaIdStart - int256(i);
     }
-
-    uint256 distribution = (10 ** 18) / binsAmount;
 
 
     uint256[] memory distributionX = new uint256[](binsAmount);
-
-    for (uint256 i = 0; i < (binsAmount - 1); i++) {
+    distributionX[0] = 1e18;
+    for (uint256 i = 1; i < (binsAmount); i++) {
     distributionX[i] = 0;
-        if (i == 0) {
-            distributionX[0] = 1e18;
-        }
     }
 
     uint256[] memory distributionY = new uint256[](binsAmount);
 
     for (uint256 i = 0; i < (binsAmount - 1); i++) {
-    distributionY[i] = distribution;
+    distributionY[i] = (1e18/binsAmount);
     }
     
     uint256 idSlippage = 0;
@@ -191,20 +186,19 @@ function AddLiquiditytokenX() external payable {
     deltaIds[i] = deltaIdStart + int256(did);
     }
 
-    uint256 distribution = 1e18 / binsAmount;
 
     uint256[] memory distributionX = new uint256[](binsAmount);
 
     for (uint256 i = 0; i < (binsAmount - 1); i++) {
-    distributionX[i] = distribution;
+    distributionX[i] = (1e18/binsAmount);
     }
 
     uint256[] memory distributionY = new uint256[](binsAmount);
+    distributionY[0] = 1e18;
 
-    for (uint256 i = 0; i < (binsAmount - 1); i++) {
+    for (uint256 i = 1; i < (binsAmount); i++) {
     distributionY[i] = 0;
     }
-    distributionY[0] = 1e18;
     
     uint256 idSlippage = 0;
 

@@ -146,7 +146,7 @@ function checkFarm() external view returns (bool){
         farmInRange = false;
         return(farmInRange);
         }
-        else if (ActiveID < (FarmID - 9)) {
+        else if (ActiveID < (FarmID - 19)) {
         farmInRange = false;
         return(farmInRange);
         }

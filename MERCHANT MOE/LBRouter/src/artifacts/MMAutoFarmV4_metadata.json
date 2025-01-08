@@ -12,14 +12,14 @@
 			},
 			{
 				"inputs": [],
-				"name": "AddLiquiditytokenX",
+				"name": "AddLiquidityUSDT",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "AddLiquiditytokenY",
+				"name": "AddLiquiditytokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -46,19 +46,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "binsAmount",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "botController",
 				"outputs": [
 					{
@@ -71,13 +58,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "collectRewards",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -86,6 +66,41 @@
 					}
 				],
 				"name": "collectRewardsManual",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "collectRewardsUSDT",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "collectRewardstokenX",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "compoundMoe",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "convertMoe",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "converttokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -104,15 +119,28 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "removeFarmtokenX",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ManDepositID",
+						"type": "uint256"
+					}
+				],
+				"name": "removeFarmManual",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "removeFarmtokenY",
+				"name": "removeFarmUSDT",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "removeFarmtokenX",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -128,32 +156,6 @@
 				"name": "setDpositID",
 				"outputs": [],
 				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "setNumberBins",
-						"type": "uint256"
-					}
-				],
-				"name": "setNumberOfBins",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tokenXDeposit",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -183,7 +185,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/MMBOTV4.sol": "MMAutoFarmV4"
+			"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": "MMAutoFarmV4"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -237,12 +239,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/MMBOTV4.sol": {
-			"keccak256": "0x2b67186b9b187b695574b957463fca51d8a73123378bc96b481674357de5a077",
+		"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": {
+			"keccak256": "0xea85c92d6ae50e4c3c0a187725cb8994e31bf92432569f873804b20a4e6df92b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bc918d979ef3dbb83bd46d931973afcb0c3861d91f0e5cf3d6272ad2fb3b505f",
-				"dweb:/ipfs/QmbgPAYiYexVjS1DNiiXsfFZS3bsAcmPWAuyMrUZPiMmM9"
+				"bzz-raw://1314c03c9659ea376ce6238fed8905c222369c39ce647579100ca6dd49b6e0a2",
+				"dweb:/ipfs/QmNWXuU5WM7Y8gXShvieZX1bKybMTHkiM6B3Xg4irvns92"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

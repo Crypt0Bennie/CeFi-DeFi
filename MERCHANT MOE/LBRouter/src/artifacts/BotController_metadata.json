@@ -137,11 +137,11 @@
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/BotV41.sol": {
-			"keccak256": "0xdfc7bf4f1febdd611965aa94082a1a670a4de31beab42a685759554a43ca5f5f",
+			"keccak256": "0xa86914ebdab81b6d5600c3ddd1932bd92ffb047919ae38ab9ca877663a205a50",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7199c3df4b097dcf8ef67ae19d67bb4582aca4a606e569180364678459e60e1f",
-				"dweb:/ipfs/QmcWHQAsqWnq6sEzCVupuHUWYLt6ZQSri5kwSGGU4LF4Mc"
+				"bzz-raw://52ae2ce698f5de50a69d9d0b452b69d0e38d77974cbb0d063c0454828d2fe557",
+				"dweb:/ipfs/QmTvX2dq4nj4Rh5sf21rixs3mJymzFq1zqZ1BpJsqhCRrg"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/LBRouter.sol": {

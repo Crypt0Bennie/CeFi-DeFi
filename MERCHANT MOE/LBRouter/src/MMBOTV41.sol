@@ -81,7 +81,7 @@ address MoeRewarder = 0x08A62Eb0ef6DbE762774ABF5e18F49671559285b;//Only rewarder
 address Moe = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9; 
 address router = 0xeaEE7EE68874218c3558b40063c42B82D3E7232a;
 address public botController;
-uint256 binsAmount = 10;
+uint256 binsAmount = 20;
 uint256 BinHolder;
 
 function setDpositID(uint256 newDepositID) public payable {
@@ -148,6 +148,16 @@ function AddLiquidityUSDT() public payable {
     deltaIds[7] = -7;
     deltaIds[8] = -8;
     deltaIds[9] = -9;
+    deltaIds[10] = -10;
+    deltaIds[11] = -11;
+    deltaIds[12] = -12;
+    deltaIds[13] = -13;
+    deltaIds[14] = -14;
+    deltaIds[15] = -15;
+    deltaIds[16] = -16;
+    deltaIds[17] = -17;
+    deltaIds[18] = -18;
+    deltaIds[19] = -19;
 
     uint256[] memory distributionX = new uint256[](binsAmount);
     distributionX[0] = 1e18;
@@ -160,18 +170,37 @@ function AddLiquidityUSDT() public payable {
     distributionX[7] = 0;
     distributionX[8] = 0;
     distributionX[9] = 0;
+    distributionX[10] = 0;
+    distributionX[12] = 0;
+    distributionX[13] = 0;
+    distributionX[14] = 0;
+    distributionX[15] = 0;
+    distributionX[16] = 0;
+    distributionX[17] = 0;
+    distributionX[18] = 0;
+    distributionX[19] = 0;
 
     uint256[] memory distributionY = new uint256[](binsAmount);
-    distributionY[0] = 1e17;
-    distributionY[1] = 1e17;
-    distributionY[2] = 1e17;
-    distributionY[3] = 1e17;
-    distributionY[4] = 1e17;
-    distributionY[5] = 1e17;
-    distributionY[6] = 1e17;
-    distributionY[7] = 1e17;
-    distributionY[8] = 1e17;
-    distributionY[9] = 1e17;
+    distributionY[0] = 5e16;
+    distributionY[1] = 5e16;
+    distributionY[2] = 5e16;
+    distributionY[3] = 5e16;
+    distributionY[4] = 5e16;
+    distributionY[5] = 5e16;
+    distributionY[6] = 5e16;
+    distributionY[7] = 5e16;
+    distributionY[8] = 5e16;
+    distributionY[9] = 5e16;
+    distributionY[10] = 5e16;
+    distributionY[11] = 5e16;
+    distributionY[12] = 5e16;
+    distributionY[13] = 5e16;
+    distributionY[14] = 5e16;
+    distributionY[15] = 5e16;
+    distributionY[16] = 5e16;
+    distributionY[17] = 5e16;
+    distributionY[18] = 5e16;
+    distributionY[19] = 5e16;
     
     uint256 idSlippage = 0;
 
@@ -204,7 +233,7 @@ CurrentDepositID = activeIdDesired;
 }
 
 function AddLiquiditytokenX() external payable {
-       
+    uint256 binsAmount = 10;
     uint256 amountX = IERC20(tokenX).balanceOf(address(this));
     uint256 amountY = IERC20(tokenY).balanceOf(address(this));
     uint256 binStep = 15;
@@ -259,8 +288,8 @@ function AddLiquiditytokenX() external payable {
 
 
 ILBRouter.LiquidityParameters memory liquidityParameters = ILBRouter.LiquidityParameters(
-        IERC20(0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8), // Replace with actual token X address
-        IERC20(0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE), // Replace with actual token Y address
+        IERC20(tokenX), // Replace with actual token X address
+        IERC20(tokenY), // Replace with actual token Y address
         binStep,           // Replace with appropriate bin step
         amountX,           // Replace with desired amount of token X
         amountY,           // Replace with desired amount of token Y
@@ -303,6 +332,16 @@ claimid[6] = CurrentDepositID - 6;
 claimid[7] = CurrentDepositID - 7;
 claimid[8] = CurrentDepositID - 8;
 claimid[9] = CurrentDepositID - 9;
+claimid[10] = CurrentDepositID -10;
+claimid[11] = CurrentDepositID - 11;
+claimid[12] = CurrentDepositID - 12;
+claimid[13] = CurrentDepositID - 13;
+claimid[14] = CurrentDepositID - 14;
+claimid[15] = CurrentDepositID - 15;
+claimid[16] = CurrentDepositID - 16;
+claimid[17] = CurrentDepositID - 17;
+claimid[18] = CurrentDepositID - 18;
+claimid[19] = CurrentDepositID - 19;
 
 // To figure out amountXMin and amountYMin, we calculate how much X and Y underlying we have as liquidity
     amounts[0] = ILBTokenNFT(LBPool).balanceOf(address(this), CurrentDepositID);
@@ -315,6 +354,16 @@ claimid[9] = CurrentDepositID - 9;
     amounts[7] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 7));
     amounts[8] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 8));
     amounts[9] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 9));
+    amounts[10] = ILBTokenNFT(LBPool).balanceOf(address(this), CurrentDepositID - 10);
+    amounts[11] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 11));
+    amounts[12] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 12));
+    amounts[13] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 13));
+    amounts[14] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 14));
+    amounts[15] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 15));
+    amounts[16] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 16));
+    amounts[17] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 17));
+    amounts[18] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 18));
+    amounts[19] = ILBTokenNFT(LBPool).balanceOf(address(this), (CurrentDepositID - 19));
 
 ILBRouter(LBrouter).removeLiquidity( 
     IERC20(tokenX), // Replace with actual token X address
@@ -331,8 +380,9 @@ ILBRouter(LBrouter).removeLiquidity(
 }
 
 function removeFarmtokenX() external payable {
-
+    uint256 binsAmount = 10;
 uint16 binStep = 15;
+
 
 uint256[] memory amounts = new uint256[](binsAmount);
 uint256[] memory claimid = new uint256[](binsAmount);
@@ -375,7 +425,6 @@ ILBRouter(LBrouter).removeLiquidity(
 }
 
 
-
 function approveTokenRewarder() public payable {
 
 ILBTokenNFT(LBPool).approveForAll(LBrouter, true);
@@ -386,18 +435,28 @@ ILBTokenNFT(LBPool).approveForAll(MoeRewarder, true);
 //Collect Rewards
 
 function collectRewardsUSDT() public payable {
-    uint256 rewardbinsAmount = 10;
+    uint256 rewardbinsAmount = 20;
     uint256[] memory claimid = new uint256[](rewardbinsAmount);
-    claimid[0] = CurrentDepositID;
-    claimid[1] = CurrentDepositID - 1;
-    claimid[2] = CurrentDepositID - 2;
-    claimid[3] = CurrentDepositID - 3;
-    claimid[4] = CurrentDepositID - 4;
-    claimid[5] = CurrentDepositID - 5;
-    claimid[6] = CurrentDepositID - 6;
-    claimid[7] = CurrentDepositID - 7;
-    claimid[8] = CurrentDepositID - 8;
-    claimid[9] = CurrentDepositID - 9;
+claimid[0] = CurrentDepositID;
+claimid[1] = CurrentDepositID - 1;
+claimid[2] = CurrentDepositID - 2;
+claimid[3] = CurrentDepositID - 3;
+claimid[4] = CurrentDepositID - 4;
+claimid[5] = CurrentDepositID - 5;
+claimid[6] = CurrentDepositID - 6;
+claimid[7] = CurrentDepositID - 7;
+claimid[8] = CurrentDepositID - 8;
+claimid[9] = CurrentDepositID - 9;
+claimid[10] = CurrentDepositID -10;
+claimid[11] = CurrentDepositID - 11;
+claimid[12] = CurrentDepositID - 12;
+claimid[13] = CurrentDepositID - 13;
+claimid[14] = CurrentDepositID - 14;
+claimid[15] = CurrentDepositID - 15;
+claimid[16] = CurrentDepositID - 16;
+claimid[17] = CurrentDepositID - 17;
+claimid[18] = CurrentDepositID - 18;
+claimid[19] = CurrentDepositID - 19;
 
     IRewarder(MoeRewarder).claim(address(this), claimid);
 
