@@ -77,6 +77,10 @@ function setBOTAddress(address newBot) public payable {
     Bot = newBot;
 }
 
+function viewCurrentBin() public view (returns uint256) {
+    uint256 viewActiveID = IMMBot(Bot).ViewBin();
+}
+
 function rebalance() public payable {
 
     if (USDTonly == true) {

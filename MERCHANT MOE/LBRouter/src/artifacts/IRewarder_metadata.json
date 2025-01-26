@@ -37,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": "IRewarder"
+			"MERCHANT MOE/LBRouter/src/LoopFarmer.sol": "IRewarder"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -91,12 +91,12 @@
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/MMBOTV41.sol": {
-			"keccak256": "0xea85c92d6ae50e4c3c0a187725cb8994e31bf92432569f873804b20a4e6df92b",
+		"MERCHANT MOE/LBRouter/src/LoopFarmer.sol": {
+			"keccak256": "0xb79b53c39ec9d3f577c3fa580e4795c4cabbe8c7761033c24f1b17c62a4ee7e7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1314c03c9659ea376ce6238fed8905c222369c39ce647579100ca6dd49b6e0a2",
-				"dweb:/ipfs/QmNWXuU5WM7Y8gXShvieZX1bKybMTHkiM6B3Xg4irvns92"
+				"bzz-raw://4bf0d78dc24503da96c35f3f997d79434ed1b2eb3dee06be7f73a868e2d1fae3",
+				"dweb:/ipfs/QmQYSE29vLXVB2Dnzdz6Du8abnE4CJ9D43MyW4XzjikpLG"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

@@ -90,7 +90,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MERCHANT MOE/LBRouter/src/BotV41.sol": "BotController"
+			"MERCHANT MOE/LBRouter/src/LoopBot.sol": "BotController"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -136,20 +136,20 @@
 				"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
 			]
 		},
-		"MERCHANT MOE/LBRouter/src/BotV41.sol": {
-			"keccak256": "0xa86914ebdab81b6d5600c3ddd1932bd92ffb047919ae38ab9ca877663a205a50",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://52ae2ce698f5de50a69d9d0b452b69d0e38d77974cbb0d063c0454828d2fe557",
-				"dweb:/ipfs/QmTvX2dq4nj4Rh5sf21rixs3mJymzFq1zqZ1BpJsqhCRrg"
-			]
-		},
 		"MERCHANT MOE/LBRouter/src/LBRouter.sol": {
 			"keccak256": "0xb06aab0b829ac3b74d39a6f25d8490be9498355e235189da59e66f7ae88957a1",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://f3e01927c9b4000f1d0d89be9da69b906a54925c2ac9658d09b9b8cb1ce2ea0b",
 				"dweb:/ipfs/QmevdwtrRzcqewWtG9qD52V5572YUsmxkbGE6Di3xeuGP9"
+			]
+		},
+		"MERCHANT MOE/LBRouter/src/LoopBot.sol": {
+			"keccak256": "0x655af4fd57df2499d47041b67ec3950566bea334ffffa9f9fb540e3cb5278ba3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fcff96ee0f26e3344da05bf848350e0d0834b2d1a09bf2141ad4349088b43c31",
+				"dweb:/ipfs/QmUPRZFWrPnPopQEfkp1XCr4sFACsdS1rnonxcvTaPL4KX"
 			]
 		},
 		"MERCHANT MOE/LBRouter/src/interfaces/IJoeFactory.sol": {

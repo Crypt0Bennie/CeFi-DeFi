@@ -80,7 +80,6 @@ address LBrouter = 0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a;
 address MoeRewarder = 0x08A62Eb0ef6DbE762774ABF5e18F49671559285b;//Only rewarder for the tokenX/USDT 1 Pool
 address Moe = 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9; 
 address router = 0xeaEE7EE68874218c3558b40063c42B82D3E7232a;
-address public botController;
 uint256 binsAmount = 10;
 uint256 BinHolder;
 

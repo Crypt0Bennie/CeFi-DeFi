@@ -49,9 +49,10 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"AddLiquidityUSDT()": "1f4e2e0a",
 			"AddLiquiditytokenX()": "f5001870",
+			"AddLiquiditytokenY()": "ab47ebc6",
 			"ViewBin()": "ecbd4533",
+			"ViewNoOfBins()": "b9b54316",
 			"collectRewards()": "70bb45b3",
 			"collectRewardsManual(uint256)": "17ced34b",
 			"collectRewardsUSDT()": "c8643a5d",
@@ -68,13 +69,6 @@
 	"abi": [
 		{
 			"inputs": [],
-			"name": "AddLiquidityUSDT",
-			"outputs": [],
-			"stateMutability": "payable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
 			"name": "AddLiquiditytokenX",
 			"outputs": [],
 			"stateMutability": "payable",
@@ -82,7 +76,27 @@
 		},
 		{
 			"inputs": [],
+			"name": "AddLiquiditytokenY",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "ViewBin",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "ViewNoOfBins",
 			"outputs": [
 				{
 					"internalType": "uint256",
